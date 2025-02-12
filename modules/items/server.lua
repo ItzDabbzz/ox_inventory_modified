@@ -224,6 +224,7 @@ function Items.Metadata(inv, item, metadata, count)
 		metadata = metadata,
 		item = item,
 		count = count,
+		category = item.category,
 	})
 
 	if type(response) == 'table' then

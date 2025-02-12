@@ -21,10 +21,11 @@ interface SlotProps {
   inventoryType: Inventory['type'];
   inventoryGroups: Inventory['groups'];
   item: Slot;
+  style?: React.CSSProperties; // Add style prop
 }
 
 const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> = (
-  { item, inventoryId, inventoryType, inventoryGroups },
+  { item, inventoryId, inventoryType, inventoryGroups, style },
   ref
 ) => {
   const manager = useDragDropManager();
@@ -118,6 +119,17 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
   };
 
   const refs = useMergeRefs([connectRef, ref]);
+  const mergedStyle = {
+    filter:
+      !canPurchaseItem(item, { type: inventoryType, groups: inventoryGroups }) || !canCraftItem(item, inventoryType)
+        ? 'brightness(80%) grayscale(100%)'
+        : undefined,
+    opacity: isDragging ? 0.4 : 1.0,
+    backgroundImage: `url(${item?.name ? getItemUrl(item as SlotWithItem) : 'none'}`,
+    border: isOver ? '1px dashed rgba(255,255,255,0.4)' : '',
+    ...style, // Apply the incoming style
+  };
+
 
   return (
     <div
@@ -125,15 +137,7 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
       onContextMenu={handleContext}
       onClick={handleClick}
       className="inventory-slot"
-      style={{
-        filter:
-          !canPurchaseItem(item, { type: inventoryType, groups: inventoryGroups }) || !canCraftItem(item, inventoryType)
-            ? 'brightness(80%) grayscale(100%)'
-            : undefined,
-        opacity: isDragging ? 0.4 : 1.0,
-        backgroundImage: `url(${item?.name ? getItemUrl(item as SlotWithItem) : 'none'}`,
-        border: isOver ? '1px dashed rgba(255,255,255,0.4)' : '',
-      }}
+      style={mergedStyle}
     >
       {isSlotWithItem(item) && (
         <div
@@ -198,7 +202,7 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
                     {item.price > 0 && (
                       <div
                         className="item-slot-price-wrapper"
-                        style={{ color: item.currency === 'money' || !item.currency ? '#2ECC71' : '#E74C3C' }}
+                        style={{ color: item.currency === 'money' || !item.currency ? '#a6e3a1' : '#f38ba8' }}
                       >
                         <p>
                           {Locale.$ || '$'}

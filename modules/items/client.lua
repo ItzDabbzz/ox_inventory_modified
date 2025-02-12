@@ -88,16 +88,16 @@ local ox_inventory = exports[shared.resource]
 -- Clientside item use functions
 -----------------------------------------------------------------------------------------------
 
-Item('bandage', function(data, slot)
-	local maxHealth = GetEntityMaxHealth(cache.ped)
-	local health = GetEntityHealth(cache.ped)
-	ox_inventory:useItem(data, function(data)
-		if data then
-			SetEntityHealth(cache.ped, math.min(maxHealth, math.floor(health + maxHealth / 16)))
-			lib.notify({ description = 'You feel better already' })
-		end
-	end)
-end)
+-- Item('bandage', function(data, slot)
+-- 	local maxHealth = GetEntityMaxHealth(cache.ped)
+-- 	local health = GetEntityHealth(cache.ped)
+-- 	ox_inventory:useItem(data, function(data)
+-- 		if data then
+-- 			SetEntityHealth(cache.ped, math.min(maxHealth, math.floor(health + maxHealth / 16)))
+-- 			lib.notify({ description = 'You feel better already' })
+-- 		end
+-- 	end)
+-- end)
 
 Item('armour', function(data, slot)
 	if GetPedArmour(cache.ped) < 100 then
@@ -129,15 +129,15 @@ Item('parachute', function(data, slot)
 	end
 end)
 
-Item('phone', function(data, slot)
-	local success, result = pcall(function()
-		return exports.npwd:isPhoneVisible()
-	end)
+-- Item('phone', function(data, slot)
+-- 	local success, result = pcall(function()
+-- 		return exports.npwd:isPhoneVisible()
+-- 	end)
 
-	if success then
-		exports.npwd:setPhoneVisible(not result)
-	end
-end)
+-- 	if success then
+-- 		exports.npwd:setPhoneVisible(not result)
+-- 	end
+-- end)
 
 Item('clothing', function(data, slot)
 	local metadata = slot.metadata

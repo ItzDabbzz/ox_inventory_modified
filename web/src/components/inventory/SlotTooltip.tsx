@@ -20,6 +20,7 @@ const SlotTooltip: React.ForwardRefRenderFunction<
   }, [item]);
   const description = item.metadata?.description || itemData?.description;
   const ammoName = itemData?.ammoName && Items[itemData?.ammoName]?.label;
+  const category = itemData?.category;
 
   return (
     <>
@@ -49,6 +50,9 @@ const SlotTooltip: React.ForwardRefRenderFunction<
               <ReactMarkdown className="tooltip-markdown">{description}</ReactMarkdown>
             </div>
           )}
+          <Divider/>
+          {category && <p>{category}</p>}
+          <Divider/>
           {inventoryType !== 'crafting' ? (
             <>
               {item.durability !== undefined && (

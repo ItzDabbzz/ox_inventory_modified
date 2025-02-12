@@ -55,6 +55,7 @@ return {
 
 	['bandage'] = {
 		label = 'Bandage',
+		category = 'medical',
 		weight = 115,
 		client = {
 			anim = { dict = 'missheistdockssetup1clipboard@idle_a', clip = 'idle_a', flag = 49 },
@@ -65,12 +66,14 @@ return {
 	},
 
 	['black_money'] = {
+		category = 'money',
 		label = 'Dirty Money',
 	},
 
 	['burger'] = {
 		label = 'Burger',
 		weight = 220,
+		category = 'food',
 		client = {
 			status = { hunger = 200000 },
 			anim = 'eating',
@@ -82,6 +85,7 @@ return {
 
 	['sprunk'] = {
 		label = 'Sprunk',
+		category = 'drink',
 		weight = 350,
 		client = {
 			status = { thirst = 200000 },
@@ -94,6 +98,7 @@ return {
 
 	['parachute'] = {
 		label = 'Parachute',
+		category = 'backpack',
 		weight = 8000,
 		stack = false,
 		client = {
@@ -103,10 +108,12 @@ return {
 	},
 
 	['garbage'] = {
+		category = 'misc',
 		label = 'Garbage',
 	},
 
 	['paperbag'] = {
+		category = 'crafting',
 		label = 'Paper Bag',
 		weight = 1,
 		stack = false,
@@ -115,6 +122,7 @@ return {
 	},
 
 	['identification'] = {
+		category = 'documents',
 		label = 'Identification',
 		client = {
 			image = 'card_id.png'
@@ -122,6 +130,7 @@ return {
 	},
 
 	['panties'] = {
+		category = 'crafting',
 		label = 'Knickers',
 		weight = 10,
 		consume = 0,
@@ -134,11 +143,13 @@ return {
 	},
 
 	['lockpick'] = {
+		category = 'tools',
 		label = 'Lockpick',
 		weight = 160,
 	},
 
 	['phone'] = {
+		category = 'electronics',
 		label = 'Phone',
 		weight = 190,
 		stack = false,
@@ -159,10 +170,12 @@ return {
 	},
 
 	['money'] = {
+		category = 'money',
 		label = 'Money',
 	},
 
 	['mustard'] = {
+		category = 'ingredients',
 		label = 'Mustard',
 		weight = 500,
 		client = {
@@ -175,6 +188,7 @@ return {
 	},
 
 	['water'] = {
+		category = 'drink',
 		label = 'Water',
 		weight = 500,
 		client = {
@@ -188,6 +202,7 @@ return {
 	},
 
 	['radio'] = {
+		category = 'electronics',
 		label = 'Radio',
 		weight = 1000,
 		stack = false,
@@ -195,6 +210,7 @@ return {
 	},
 
 	['armour'] = {
+		category = 'clothing',
 		label = 'Bulletproof Vest',
 		weight = 3000,
 		stack = false,
@@ -205,11 +221,13 @@ return {
 	},
 
 	['clothing'] = {
+		category = 'clothing',
 		label = 'Clothing',
 		consume = 0,
 	},
 
 	['mastercard'] = {
+		category = 'documents',
 		label = 'Fleeca Card',
 		stack = false,
 		weight = 10,
@@ -219,6 +237,7 @@ return {
 	},
 
 	['scrapmetal'] = {
+		category = 'crafting',
 		label = 'Scrap Metal',
 		weight = 80,
 	},

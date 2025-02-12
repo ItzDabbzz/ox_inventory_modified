@@ -21,6 +21,7 @@ debugData([
         type: 'player',
         slots: 50,
         label: 'Bob Smith',
+        cash: 1000,
         weight: 3000,
         maxWeight: 5000,
         items: [
@@ -28,6 +29,7 @@ debugData([
             slot: 1,
             name: 'iron',
             weight: 3000,
+            category: 'crafting',
             metadata: {
               description: `name: Svetozar Miletic  \n Gender: Male`,
               ammo: 3,
@@ -37,26 +39,29 @@ debugData([
             },
             count: 5,
           },
-          { slot: 2, name: 'powersaw', weight: 0, count: 1, metadata: { durability: 75 } },
-          { slot: 3, name: 'copper', weight: 100, count: 12, metadata: { type: 'Special' } },
+          { slot: 2, name: 'powersaw', category: 'tools', weight: 0, count: 1, metadata: { durability: 75 } },
+          { slot: 3, name: 'copper', weight: 100, category: 'crafting', count: 12, metadata: { type: 'Special' } },
           {
             slot: 4,
             name: 'water',
+            category: 'drink',
             weight: 100,
             count: 1,
             metadata: { description: 'Generic item description' },
           },
-          { slot: 5, name: 'water', weight: 100, count: 1 },
+          { slot: 5, name: 'water', weight: 100, count: 1, category: 'drink', },
           {
             slot: 6,
             name: 'backwoods',
             weight: 100,
             count: 1,
+            category: 'drugs',
             metadata: {
               label: 'Russian Cream',
               imageurl: 'https://i.imgur.com/2xHhTTz.png',
             },
           },
+          { slot: 7, name: 'money', weight: 100, count: 1000, category: 'money', },
         ],
       },
       rightInventory: {
@@ -72,6 +77,7 @@ debugData([
             name: 'lockpick',
             weight: 500,
             price: 300,
+            category: 'tools',
             ingredients: {
               iron: 5,
               copper: 12,

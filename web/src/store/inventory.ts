@@ -28,6 +28,7 @@ const initialState: State = {
   itemAmount: 0,
   shiftPressed: false,
   isBusy: false,
+  categoryFilter: null,
 };
 
 export const inventorySlice = createSlice({
@@ -62,6 +63,10 @@ export const inventorySlice = createSlice({
 
       container.weight = action.payload;
     },
+    
+    setCategoryFilter: (state, action: PayloadAction<string | null>) => {
+      state.categoryFilter = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(isPending, (state) => {
@@ -95,10 +100,12 @@ export const {
   stackSlots,
   refreshSlots,
   setContainerWeight,
+  setCategoryFilter,
 } = inventorySlice.actions;
 export const selectLeftInventory = (state: RootState) => state.inventory.leftInventory;
 export const selectRightInventory = (state: RootState) => state.inventory.rightInventory;
 export const selectItemAmount = (state: RootState) => state.inventory.itemAmount;
 export const selectIsBusy = (state: RootState) => state.inventory.isBusy;
+export const selectCategoryFilter = (state: RootState) => state.inventory.categoryFilter;
 
 export default inventorySlice.reducer;
