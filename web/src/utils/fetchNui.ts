@@ -14,7 +14,11 @@ import { isEnvBrowser } from './misc';
 const resourceName = (window as any).GetParentResourceName ? (window as any).GetParentResourceName() : 'ox_inventory';
 
 export async function fetchNui<T>(eventName: string, data?: unknown): Promise<T> {
-  if (isEnvBrowser()) return undefined as any; // HACK FOR BORING ERRORS IN DEV
+  /**
+   * This is a workaround for the fact that the NUI callbacks are not available in the browser environment.
+   * This is a temporary solution until we can find a better way to handle this.
+   */
+  if (isEnvBrowser()) return undefined as any;
 
   try {
     const resp = await fetch(`https://${resourceName}/${eventName}`, {
