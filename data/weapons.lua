@@ -1,10 +1,33 @@
 return {
 	Weapons = {
+		['WEAPON_PROLASER4'] = {
+			label = 'Lidar',
+			weight = 700,
+			durability = 0.1,
+		},
+		['WEAPON_DIGISCANNER'] = {
+			label = 'Digital Scanner',
+			weight = 125,
+			durability = 0.1,
+		},
+		['WEAPON_THROWLINE'] = {
+			label = 'Throwbag',
+			weight = 1000,
+			throwable = true,
+		},
 		['WEAPON_BATTLERIFLE'] = {
 			label = 'Battle Rifle',
 			weight = 3300,
 			durability = 0.03,
 			ammoname = 'ammo-rifle2',
+		},
+		['WEAPON_GLIZZY'] = {
+			label = 'Glizzy',
+			weight = 500,
+		},
+		['WEAPON_GAS'] = {
+			label = 'Galaxy Gas',
+			weight = 450,
 		},
 
 		['WEAPON_SNOWLAUNCHER'] = {
@@ -178,7 +201,7 @@ return {
 		},
 
 		['WEAPON_COMPACTLAUNCHER'] = {
-			label = 'Compact Grenade Launcher',
+			label = 'Grappling Hook Launcher',
 			weight = 2500,
 			durability = 0.05,
 			ammoname = 'ammo-grenade'
@@ -227,7 +250,7 @@ return {
 		['WEAPON_FIREEXTINGUISHER'] = {
 			label = 'Fire Extinguisher',
 			weight = 8616,
-            durability = 0.006
+			durability = 0.006
 		},
 
 		['WEAPON_FIREWORK'] = {
@@ -716,6 +739,116 @@ return {
 			weight = 600,
 			throwable = true,
 		},
+
+
+		----11.5
+		["WEAPON_DD11_B"]        = {
+			label = "Black DDM4V7 11.5",
+			weight = 3400,
+			durability = 0.03,
+			ammoname = "ammo-rifle",
+		},
+
+		["WEAPON_DD11_OD"]       = {
+			label = "OD DDM4V7 11.5",
+			weight = 3400,
+			durability = 0.03,
+			ammoname = "ammo-rifle",
+		},
+
+		["WEAPON_DD11_C"]        = {
+			label = "Coyote DDM4V7 11.5",
+			weight = 3400,
+			durability = 0.03,
+			ammoname = "ammo-rifle",
+		},
+		----14.5
+		["WEAPON_DD14_B"]        = {
+			label = "Black DDM4V7 14.5",
+			weight = 3400,
+			durability = 0.03,
+			ammoname = "ammo-rifle",
+		},
+
+		["WEAPON_DD14_OD"]       = {
+			label = "OD DDM4V7 14.5",
+			weight = 3400,
+			durability = 0.03,
+			ammoname = "ammo-rifle",
+		},
+
+		["WEAPON_DD14_C"]        = {
+			label = "Coyote DDM4V7 14.5",
+			weight = 3400,
+			durability = 0.03,
+			ammoname = "ammo-rifle",
+		},
+		---- 16
+		["WEAPON_DD16_B"]        = {
+			label = "Black DDM4V7 16",
+			weight = 3400,
+			durability = 0.03,
+			ammoname = "ammo-rifle",
+		},
+
+		["WEAPON_DD16_OD"]       = {
+			label = "OD DDM4V7 16",
+			weight = 3400,
+			durability = 0.03,
+			ammoname = "ammo-rifle",
+		},
+
+		["WEAPON_DD16_C"]        = {
+			label = "Coyote DDM4V7 16",
+			weight = 3400,
+			durability = 0.03,
+			ammoname = "ammo-rifle",
+		},
+		['WEAPON_DILDO']         = {
+			label = 'Dildo',
+			weight = 500,
+			durability = 0.1,
+		},
+		['WEAPON_SLEDGEHAMMER']  = {
+			label = 'Sledgehammer',
+			weight = 500,
+			durability = 0.1,
+		},
+		['WEAPON_KATANA']        = {
+			label = 'Katana',
+			weight = 500,
+			durability = 0.1,
+		},
+		['WEAPON_CHERRYKATANAS'] = {
+			label = 'Cherry Katana',
+			weight = 500,
+			durability = 0.1,
+		},
+		['WEAPON_KEYBOARD']      = {
+			label = 'keyboard',
+			weight = 500,
+			durability = 0.1,
+		},
+		['WEAPON_RIFTEDGE']      = {
+			label = 'Riftedge',
+			weight = 500,
+			durability = 0.1,
+		},
+		['WEAPON_KRAMBIT']       = {
+			label = 'Krambit',
+			weight = 500,
+			durability = 0.1,
+		},
+		['WEAPON_SWORD']         = {
+			label = 'Sword',
+			weight = 500,
+			durability = 0.1,
+		},
+		['WEAPON_ACIDPACKAGE']   = {
+			label = 'Newspaper',
+			weight = 0,
+			throwable = true,
+		},
 	},
 
 	Components = {
@@ -740,7 +873,7 @@ return {
 			weight = 280,
 			type = 'muzzle',
 			client = {
-                image = 'at_suppressor.png',
+				image = 'at_suppressor.png',
 				component = {
 					`COMPONENT_AT_PI_SUPP`,
 					`COMPONENT_AT_PI_SUPP_02`,
@@ -756,7 +889,7 @@ return {
 			weight = 280,
 			type = 'muzzle',
 			client = {
-                image = 'at_suppressor.png',
+				image = 'at_suppressor.png',
 				component = {
 					`COMPONENT_AT_AR_SUPP`,
 					`COMPONENT_AT_AR_SUPP_02`,
@@ -804,7 +937,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended.png',
+				image = 'at_clip_extended.png',
 				component = {
 					`COMPONENT_APPISTOL_CLIP_02`,
 					`COMPONENT_CERAMICPISTOL_CLIP_02`,
@@ -816,7 +949,7 @@ return {
 					`COMPONENT_SNSPISTOL_CLIP_02`,
 					`COMPONENT_SNSPISTOL_MK2_CLIP_02`,
 					`COMPONENT_VINTAGEPISTOL_CLIP_02`,
-                    `COMPONENT_TECPISTOL_CLIP_02`,
+					`COMPONENT_TECPISTOL_CLIP_02`,
 				},
 				usetime = 2500
 			}
@@ -827,7 +960,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended.png',
+				image = 'at_clip_extended.png',
 				component = {
 					`COMPONENT_ASSAULTSMG_CLIP_02`,
 					`COMPONENT_COMBATPDW_CLIP_02`,
@@ -846,7 +979,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended2.png',
+				image = 'at_clip_extended2.png',
 				component = {
 					`COMPONENT_ASSAULTSHOTGUN_CLIP_02`,
 					`COMPONENT_HEAVYSHOTGUN_CLIP_02`,
@@ -860,7 +993,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended2.png',
+				image = 'at_clip_extended2.png',
 				component = {
 					`COMPONENT_ADVANCEDRIFLE_CLIP_02`,
 					`COMPONENT_ASSAULTRIFLE_CLIP_02`,
@@ -886,7 +1019,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_GUSENBERG_CLIP_02`,
 					`COMPONENT_MG_CLIP_02`,
@@ -902,7 +1035,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended2.png',
+				image = 'at_clip_extended2.png',
 				component = {
 					`COMPONENT_HEAVYSNIPER_MK2_CLIP_02`,
 					`COMPONENT_MARKSMANRIFLE_CLIP_02`,
@@ -917,7 +1050,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_COMBATPDW_CLIP_03`,
 					`COMPONENT_MACHINEPISTOL_CLIP_03`,
@@ -932,7 +1065,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_HEAVYSHOTGUN_CLIP_03`
 				},
@@ -945,7 +1078,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_ASSAULTRIFLE_CLIP_03`,
 					`COMPONENT_COMPACTRIFLE_CLIP_03`,
@@ -1183,6 +1316,388 @@ return {
 				},
 				usetime = 2500
 			}
+		},
+
+		----- Thinline Attachments
+		["component_pro_b"] = {
+			label = "Black Red Dot",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_PRO_B'
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_pro_od"] = {
+			label = "OD Wrapped Red Dot",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_PRO_OD'
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_pro_c"] = {
+			label = "Coyote Wrapped Red Dot",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_PRO_C'
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_exps34_b"] = {
+			label = "Black Holographic Sight",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_EXPS34_B'
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_exps34_c"] = {
+			label = "Coyote Holographic Sight",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_EXPS34_C'
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_hhsvo_b"] = {
+			label = "Black Mag Holographic Sight",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_HHSVO_B'
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_hhsvo_c"] = {
+			label = "Coyote Mag Holographic Sight",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_HHSVO_C'
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_hhsvc_b"] = {
+			label = "Black Closed Mag Holographic Sight",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_HHSVC_B'
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_hhsvc_c"] = {
+			label = "Coyote Closed Mag Holographic Sight",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_HHSVC_C'
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_vudu_1x"] = {
+			label = "Vudu 1X Scope",
+			type = "sight",
+			weight = 280,
+			client = {
+				component = {
+					'COMPONENT_VUDU_1X'
+				},
+				usetime = 2500,
+			},
+		},
+		----- Mags
+		["component_pmag30_b"] = {
+			label = "Black 30R Mag",
+			type = "magazine",
+			weight = 280,
+			client = {
+				component = {
+					`COMPONENT_PMAG30_B`,
+
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_pmag30_c"] = {
+			label = "Coyote 30R Mag",
+			type = "magazine",
+			weight = 280,
+			client = {
+				component = {
+					`COMPONENT_PMAG30_C`,
+
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_pmag40_b"] = {
+			label = "Black 40R Mag",
+			type = "magazine",
+			weight = 280,
+			client = {
+				component = {
+					`COMPONENT_PMAG40_B`,
+
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_pmagranger_b"] = {
+			label = "Black Ranger 30R Mag",
+			type = "magazine",
+			weight = 280,
+			client = {
+				component = {
+					`COMPONENT_PMAGRANGER_B`,
+
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_pmaglink_b"] = {
+			label = "Black 60R Mag",
+			type = "magazine",
+			weight = 280,
+			client = {
+				component = {
+					`COMPONENT_PMAGLINK_B`,
+
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_pmaglink_c"] = {
+			label = "Coyote 60R Mag",
+			type = "magazine",
+			weight = 280,
+			client = {
+				component = {
+					`COMPONENT_PMAGLINK_C`,
+
+				},
+				usetime = 2500,
+			},
+		},
+		----- Grips
+		["component_bcm_b"] = {
+			label = "Black Vertical Grip",
+			type = "grip",
+			weight = 280,
+			client = {
+				component = {
+					`COMPONENT_BCM_B`,
+
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_bcm_od"] = {
+			label = "OD Vertical Grip",
+			type = "grip",
+			weight = 280,
+			client = {
+				component = {
+					`COMPONENT_BCM_OD`,
+
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_bcm_c"] = {
+			label = "Coyote Vertical Grip",
+			type = "grip",
+			weight = 280,
+			client = {
+				component = {
+					`COMPONENT_BCM_C`,
+
+				},
+				usetime = 2500,
+			},
+		},
+		----- Flashlights
+		["component_sfs11_b"] = {
+			label = "11.5 Flashlight",
+			weight = 120,
+			type = "flashlight",
+			client = {
+				component = {
+					`COMPONENT_SFS11_B`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_sfs14_b"] = {
+			label = "14.5 Flashlight",
+			weight = 120,
+			type = "flashlight",
+			client = {
+				component = {
+					`COMPONENT_SFS14_B`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_sfs16_b"] = {
+			label = "16 Flashlight",
+			weight = 120,
+			type = "flashlight",
+			client = {
+				component = {
+					`COMPONENT_SFS16_B`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_peq11_b"] = {
+			label = "Black 11.5 PEQ Flashlight",
+			weight = 120,
+			type = "flashlight",
+			client = {
+				component = {
+					`COMPONENT_PEQ11_B`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_peq11_c"] = {
+			label = "Coyote 11.5 PEQ Flashlight",
+			weight = 120,
+			type = "flashlight",
+			client = {
+				component = {
+					`COMPONENT_PEQ11_C`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_peq14_b"] = {
+			label = "black 14.5 PEQ Flashlight",
+			weight = 120,
+			type = "flashlight",
+			client = {
+				component = {
+					`COMPONENT_PEQ14_b`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_peq14_c"] = {
+			label = "Coyote 14.5 PEQ Flashlight",
+			weight = 120,
+			type = "flashlight",
+			client = {
+				component = {
+					`COMPONENT_PEQ14_C`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_peq16_b"] = {
+			label = "black 16 PEQ Flashlight",
+			weight = 120,
+			type = "flashlight",
+			client = {
+				component = {
+					`COMPONENT_PEQ16_b`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_peq16_c"] = {
+			label = "Coyote 16 PEQ Flashlight",
+			weight = 120,
+			type = "flashlight",
+			client = {
+				component = {
+					`COMPONENT_PEQ16_C`,
+				},
+				usetime = 2500,
+			},
+		},
+		----- Suppressors
+		["component_socomsup11_b"] = {
+			label = "11.5 Suppressor",
+			weight = 280,
+			type = "muzzle",
+			client = {
+				component = {
+					`COMPONENT_SOCOMSUP11_B`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_socomsup14_b"] = {
+			label = "14.5 Suppressor",
+			weight = 280,
+			type = "muzzle",
+			client = {
+				component = {
+					`COMPONENT_SOCOMSUP14_B`,
+				},
+				usetime = 2500,
+			},
+		},
+
+		["component_socomsup16_b"] = {
+			label = "16 Suppressor",
+			weight = 280,
+			type = "muzzle",
+			client = {
+				component = {
+					`COMPONENT_SOCOMSUP16_B`,
+				},
+				usetime = 2500,
+			},
 		},
 
 		['at_skin_luxe'] = {
