@@ -629,3 +629,28 @@ button:active {
   transform: translateY(200px);
   transition: all 200ms;
 }
+
+/* Custom scrollbar styles */
+.inventory-grid-container-left::-webkit-scrollbar,
+.inventory-grid-container-right::-webkit-scrollbar {
+  width: 8px;
+}
+
+.inventory-grid-container-left::-webkit-scrollbar-track,
+.inventory-grid-container-right::-webkit-scrollbar-track {
+  background: $secondaryColor; /* Background color of the scrollbar track */
+  border-radius: 10px;
+}
+
+.inventory-grid-container-left::-webkit-scrollbar-thumb,
+.inventory-grid-container-right::-webkit-scrollbar-thumb {
+  background-color: $mainColor; /* Color of the scrollbar thumb */
+  border-radius: 10px;
+  border: 2px solid $secondaryColor; /* Border color to match the theme */
+}
+
+.inventory-grid-container-left::-webkit-scrollbar-thumb:hover,
+.inventory-grid-container-right::-webkit-scrollbar-thumb:hover {
+  background-color: $secondaryColorHighlight; /* Color of the scrollbar thumb on hover */
+}
+
