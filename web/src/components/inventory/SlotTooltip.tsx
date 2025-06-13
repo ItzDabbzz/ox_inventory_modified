@@ -20,7 +20,6 @@ const SlotTooltip: React.ForwardRefRenderFunction<
   }, [item]);
   const description = item.metadata?.description || itemData?.description;
   const ammoName = itemData?.ammoName && Items[itemData?.ammoName]?.label;
-  const category = itemData?.category;
 
   return (
     <>
@@ -36,7 +35,7 @@ const SlotTooltip: React.ForwardRefRenderFunction<
           <div className="tooltip-header-wrapper">
             <p>{item.metadata?.label || itemData.label || item.name}</p>
             {inventoryType === 'crafting' ? (
-              <div className="tooltip-crafting-duration">
+              <div className="tooltip-crafting-duration font-green">
                 <ClockIcon />
                 <p>{(item.duration !== undefined ? item.duration : 3000) / 1000}s</p>
               </div>
@@ -50,29 +49,31 @@ const SlotTooltip: React.ForwardRefRenderFunction<
               <ReactMarkdown className="tooltip-markdown">{description}</ReactMarkdown>
             </div>
           )}
-          <Divider/>
-          {category && <p>{category}</p>}
-          <Divider/>
           {inventoryType !== 'crafting' ? (
             <>
+              {item.count !== undefined && (
+                <p>
+                  {Locale.ui_count}: <span className="font-peach">{item.count.toLocaleString('en-US')}</span>
+                </p>
+              )}
               {item.durability !== undefined && (
                 <p>
-                  {Locale.ui_durability}: {Math.trunc(item.durability)}
+                  {Locale.ui_durability}: <span className="font-red">{Math.trunc(item.durability)}</span>
                 </p>
               )}
               {item.metadata?.ammo !== undefined && (
                 <p>
-                  {Locale.ui_ammo}: {item.metadata.ammo}
+                  {Locale.ui_ammo}: <span className="font-blue">{item.metadata.ammo}</span>
                 </p>
               )}
               {ammoName && (
                 <p>
-                  {Locale.ammo_type}: {ammoName}
+                  {Locale.ammo_type}: <span className="font-yellow">{ammoName}</span>
                 </p>
               )}
               {item.metadata?.serial && (
                 <p>
-                  {Locale.ui_serial}: {item.metadata.serial}
+                  {Locale.ui_serial}: <span className="font-green">{item.metadata.serial}</span>
                 </p>
               )}
               {item.metadata?.components && item.metadata?.components[0] && (
@@ -85,14 +86,14 @@ const SlotTooltip: React.ForwardRefRenderFunction<
               )}
               {item.metadata?.weapontint && (
                 <p>
-                  {Locale.ui_tint}: {item.metadata.weapontint}
+                  {Locale.ui_tint}: <span className="font-green">{item.metadata.weapontint}</span>
                 </p>
               )}
               {additionalMetadata.map((data: { metadata: string; value: string }, index: number) => (
                 <Fragment key={`metadata-${index}`}>
                   {item.metadata && item.metadata[data.metadata] && (
                     <p>
-                      {data.value}: {item.metadata[data.metadata]}
+                      {data.value}:<span className="font-green"> {item.metadata[data.metadata]}</span>
                     </p>
                   )}
                 </Fragment>
@@ -110,8 +111,8 @@ const SlotTooltip: React.ForwardRefRenderFunction<
                         {count >= 1
                           ? `${count}x ${Items[item]?.label || item}`
                           : count === 0
-                          ? `${Items[item]?.label || item}`
-                          : count < 1 && `${count * 100}% ${Items[item]?.label || item}`}
+                            ? `${Items[item]?.label || item}`
+                            : count < 1 && `${count * 100}% ${Items[item]?.label || item}`}
                       </p>
                     </div>
                   );

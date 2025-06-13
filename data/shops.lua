@@ -1,66 +1,266 @@
+--[[
+
+# Places to setup
+
+## 24/7
+- vec3(2665.22, 3286.36, 75.22) - Sandy Highway By YouTool
+- vec3(2566.98, 382.44, 108.13)
+
+]] --
+
 return {
-	General = {
-		name = 'Shop',
-		blip = {
-			id = 59, colour = 69, scale = 0.8
-		},
+	-- General = {
+	-- 	name = 'Shop',
+	-- 	blip = {
+	-- 		id = 59, colour = 69, scale = 0.8
+	-- 	},
+	-- 	inventory = {
+	-- 		-- Beverages
+
+	-- 		-- Fast Food
+
+	-- 		-- Snacks & Sides
+	-- 		{ name = 'nachos_a',                   price = 10 },
+	-- 		{ name = 'peanuts',                    price = 10 },
+	-- 		{ name = 'pretzels',                   price = 10 },
+
+	-- 		-- Sweets & Pastries
+
+	-- 		-- Candy & Chocolate
+	-- 		{ name = 'snikkel_candy',              price = 10 },
+	-- 		{ name = 'twerks_candy',               price = 10 },
+	-- 		{ name = 'bzzz_sugary_candy_a',        price = 10 },
+	-- 		{ name = 'bzzz_sugary_bar_snackbar_a', price = 10 },
+	-- 		{ name = 'bzzz_sugary_bar_marte_a',    price = 10 },
+	-- 		{ name = 'bzzz_sugary_chocothrone_a',  price = 10 },
+	-- 	},
+	-- 	locations = {
+	-- 		vec3(25.7, -1347.3, 29.49),
+	-- 		vec3(-3038.71, 585.9, 7.9),
+	-- 		vec3(-3241.47, 1001.14, 12.83),
+	-- 		vec3(1728.66, 6414.16, 35.03),
+	-- 		vec3(1697.99, 4924.4, 42.06),
+	-- 		vec3(1961.48, 3739.96, 32.34),
+	-- 		vec3(547.79, 2671.79, 42.15),
+	-- 		vec3(2679.25, 3280.12, 55.24),
+	-- 		vec3(2557.94, 382.05, 108.62),
+	-- 		vec3(373.55, 325.56, 103.56),
+	-- 	},
+	-- 	targets = {
+	-- 		{ loc = vec3(25.06, -1347.32, 29.5),   length = 0.7, width = 0.5, heading = 0.0,   minZ = 29.5,   maxZ = 29.9,   distance = 1.5 },
+	-- 		{ loc = vec3(-3039.18, 585.13, 7.91),  length = 0.6, width = 0.5, heading = 15.0,  minZ = 7.91,   maxZ = 8.31,   distance = 1.5 },
+	-- 		{ loc = vec3(-3242.2, 1000.58, 12.83), length = 0.6, width = 0.6, heading = 175.0, minZ = 12.83,  maxZ = 13.23,  distance = 1.5 },
+	-- 		{ loc = vec3(1728.39, 6414.95, 35.04), length = 0.6, width = 0.6, heading = 65.0,  minZ = 35.04,  maxZ = 35.44,  distance = 1.5 },
+	-- 		{ loc = vec3(1698.37, 4923.43, 42.06), length = 0.5, width = 0.5, heading = 235.0, minZ = 42.06,  maxZ = 42.46,  distance = 1.5 },
+	-- 		{ loc = vec3(1960.54, 3740.28, 32.34), length = 0.6, width = 0.5, heading = 120.0, minZ = 32.34,  maxZ = 32.74,  distance = 1.5 },
+	-- 		{ loc = vec3(548.5, 2671.25, 42.16),   length = 0.6, width = 0.5, heading = 10.0,  minZ = 42.16,  maxZ = 42.56,  distance = 1.5 },
+	-- 		{ loc = vec3(2678.29, 3279.94, 55.24), length = 0.6, width = 0.5, heading = 330.0, minZ = 55.24,  maxZ = 55.64,  distance = 1.5 },
+	-- 		{ loc = vec3(2557.19, 381.4, 108.62),  length = 0.6, width = 0.5, heading = 0.0,   minZ = 108.62, maxZ = 109.02, distance = 1.5 },
+	-- 		{ loc = vec3(373.13, 326.29, 103.57),  length = 0.6, width = 0.5, heading = 345.0, minZ = 103.57, maxZ = 103.97, distance = 1.5 },
+	-- 	}
+	-- },
+	GasMisc = {
+		name = '24/7 Misc',
 		inventory = {
-			{ name = 'burger',                     price = 10 },
-			{ name = 'water',                      price = 10 },
-			{ name = 'ecola',                      price = 10 },
-			{ name = 'ecola_light',                price = 10 },
-			{ name = 'muffin',                     price = 10 },
-			{ name = 'pink_donut',                 price = 10 },
-			{ name = 'sandwich',                   price = 10 },
-			{ name = 'snikkel_candy',              price = 10 },
-			{ name = 'twerks_candy',               price = 10 },
-			{ name = 'tosti',                      price = 10 },
-			{ name = 'coffeecup_a',                price = 10 },
-			{ name = 'bubbletea_a',                price = 10 },
-			{ name = 'capisun_a',                  price = 10 },
-			{ name = 'hotdog_a',                   price = 10 },
-			{ name = 'hotdog_b',                   price = 10 },
-			{ name = 'carneasada_a',               price = 10 },
-			{ name = 'nachos_a',                   price = 10 },
-			{ name = 'kebab_a',                    price = 10 },
-			{ name = 'burrito_a',                  price = 10 },
-			{ name = 'churros_a',                  price = 10 },
-			{ name = 'croissant',                  price = 10 },
-			{ name = 'donut_a',                    price = 10 },
-			{ name = 'donut_b',                    price = 10 },
-			{ name = 'peanuts',                    price = 10 },
-			{ name = 'pretzels',                   price = 10 },
-			{ name = 'pepsiloca_a',                price = 10 },
-			{ name = 'pepsiloca_b',                price = 10 },
-			{ name = 'energy',                     price = 10 },
-			{ name = 'bzzz_sugary_candy_a',        price = 10 },
-			{ name = 'bzzz_sugary_bar_snackbar_a', price = 10 },
-			{ name = 'bzzz_sugary_bar_marte_a',    price = 10 },
-			{ name = 'bzzz_sugary_chocothrone_a',  price = 10 },
+			{ name = 'cigarette', price = 10 },
+			{ name = 'lighter',   price = 10 },
+
 		},
 		locations = {
-			vec3(25.7, -1347.3, 29.49),
-			vec3(-3038.71, 585.9, 7.9),
-			vec3(-3241.47, 1001.14, 12.83),
-			vec3(1728.66, 6414.16, 35.03),
-			vec3(1697.99, 4924.4, 42.06),
-			vec3(1961.48, 3739.96, 32.34),
-			vec3(547.79, 2671.79, 42.15),
-			vec3(2679.25, 3280.12, 55.24),
-			vec3(2557.94, 382.05, 108.62),
-			vec3(373.55, 325.56, 103.56),
+			vec3(28.410961151123, -1345.4965820312, 29.598096847534)
 		},
 		targets = {
-			{ loc = vec3(25.06, -1347.32, 29.5),   length = 0.7, width = 0.5, heading = 0.0,   minZ = 29.5,   maxZ = 29.9,   distance = 1.5 },
-			{ loc = vec3(-3039.18, 585.13, 7.91),  length = 0.6, width = 0.5, heading = 15.0,  minZ = 7.91,   maxZ = 8.31,   distance = 1.5 },
-			{ loc = vec3(-3242.2, 1000.58, 12.83), length = 0.6, width = 0.6, heading = 175.0, minZ = 12.83,  maxZ = 13.23,  distance = 1.5 },
-			{ loc = vec3(1728.39, 6414.95, 35.04), length = 0.6, width = 0.6, heading = 65.0,  minZ = 35.04,  maxZ = 35.44,  distance = 1.5 },
-			{ loc = vec3(1698.37, 4923.43, 42.06), length = 0.5, width = 0.5, heading = 235.0, minZ = 42.06,  maxZ = 42.46,  distance = 1.5 },
-			{ loc = vec3(1960.54, 3740.28, 32.34), length = 0.6, width = 0.5, heading = 120.0, minZ = 32.34,  maxZ = 32.74,  distance = 1.5 },
-			{ loc = vec3(548.5, 2671.25, 42.16),   length = 0.6, width = 0.5, heading = 10.0,  minZ = 42.16,  maxZ = 42.56,  distance = 1.5 },
-			{ loc = vec3(2678.29, 3279.94, 55.24), length = 0.6, width = 0.5, heading = 330.0, minZ = 55.24,  maxZ = 55.64,  distance = 1.5 },
-			{ loc = vec3(2557.19, 381.4, 108.62),  length = 0.6, width = 0.5, heading = 0.0,   minZ = 108.62, maxZ = 109.02, distance = 1.5 },
-			{ loc = vec3(373.13, 326.29, 103.57),  length = 0.6, width = 0.5, heading = 345.0, minZ = 103.57, maxZ = 103.97, distance = 1.5 },
+			{                                                                                                                    -- Sandy Shores 24/7
+				loc = vec3(1959.55, 3739.41, 32.48),                                                                             -- Location of the target
+				length = 2.7,                                                                                                    -- Length of the target
+				width = 0.3,                                                                                                     -- Width of the target
+				heading = 30.0,                                                                                                  -- Heading of the target
+				minZ = 32.5,                                                                                                     -- Minimum Z coordinate of the target
+				maxZ = 33.8,                                                                                                     -- Maximum Z coordinate of the target
+				distance = 6.0                                                                                                   -- Distance at which the target is visible
+			},
+			{                                                                                                                    -- 24/7 Sandy @ RT 68 & Orbits Folly Lane
+				loc = vec3(549.74, 2671.71, 42.32),                                                                              -- Location of the target
+				length = 2.7,                                                                                                    -- Length of the target
+				width = 0.1,                                                                                                     -- Width of the target
+				heading = 6.0,                                                                                                   -- Heading of the target
+				minZ = 42.3,                                                                                                     -- Minimum Z coordinate of the target
+				maxZ = 43.6,                                                                                                     -- Maximum Z coordinate of the target
+				distance = 6.0                                                                                                   -- Distance at which the target is visible
+			},
+			{ loc = vec3(23.70, -1347.44, 29.60), length = 0.2, width = 2.6, heading = 270.0, minZ = 29.6, maxZ = 31.0, distance = 6.0 }, -- Starberry 24/7
+		}
+	},
+	GasCandy = {
+		name = '24/7 Candy',
+		inventory = {
+			{ name = 'snikkel_candy',              price = 10 },
+			{ name = 'twerks_candy',               price = 10 },
+			{ name = 'bzzz_sugary_candy_a',        price = 10 },
+			{ name = 'bzzz_sugary_bar_snackbar_a', price = 10 },
+		},
+		locations = {
+			vec3(28.410961151123, -1345.4965820312, 29.598096847534)
+		},
+		targets = {
+			{                            -- Sandy Shores 24/7
+				loc = vec3(1960.41, 3741.52, 31.59), -- Location of the target
+				length = 1.9,            -- Length of the target
+				width = 0.3,             -- Width of the target
+				heading = 30.0,          -- Heading of the target
+				minZ = 31.6,             -- Minimum Z coordinate of the target
+				maxZ = 32.1,             -- Maximum Z coordinate of the target
+				distance = 2.0           -- Distance at which the target is visible
+			},
+			{                            -- 24/7 Sandy @ RT 68 & Orbits Folly Lane
+				loc = vec3(548.18, 2670.16, 41.38), -- Location of the target
+				length = 1.9,            -- Length of the target
+				width = 0.2,             -- Width of the target
+				heading = 8.0,           -- Heading of the target
+				minZ = 41.4,             -- Minimum Z coordinate of the target
+				maxZ = 41.9,             -- Maximum Z coordinate of the target
+				distance = 2.0           -- Distance at which the target is visible
+			},
+		}
+	},
+	GasDrinks = {
+		name = '24/7 Drinks',
+		inventory = {
+			{ name = 'water',       price = 10 },
+			{ name = 'ecola',       price = 10 },
+			{ name = 'ecola_light', price = 10 },
+			{ name = 'coffeecup_a', price = 10 },
+			{ name = 'bubbletea_a', price = 10 },
+			{ name = 'capisun_a',   price = 10 },
+			{ name = 'pepsiloca_a', price = 10 },
+			{ name = 'pepsiloca_b', price = 10 },
+			{ name = 'energy',      price = 10 },
+		},
+		locations = {
+			vec3(28.410961151123, -1345.4965820312, 29.598096847534)
+		},
+		targets = {
+			{                                                                                                                    -- Sandy Shores 24/7
+				loc = vec3(1960.17, 3746.98, 31.34),                                                                             -- Location of the target
+				length = 0.3,                                                                                                    -- Length of the target
+				width = 4.9,                                                                                                     -- Width of the target
+				heading = 30.0,                                                                                                  -- Heading of the target
+				minZ = 31.3,                                                                                                     -- Minimum Z coordinate of the target
+				maxZ = 33.6,                                                                                                     -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                   -- Distance at which the target is visible
+			},
+			{                                                                                                                    -- LTD Chumash
+				loc = vec3(1701.17, 4931.46, 41.40),                                                                             -- Location of the target
+				length = 2.1,                                                                                                    -- Length of the target
+				width = 0.3,                                                                                                     -- Width of the target
+				heading = 324.0,                                                                                                 -- Heading of the target
+				minZ = 41.4,                                                                                                     -- Minimum Z coordinate of the target
+				maxZ = 42.5,                                                                                                     -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                   -- Distance at which the target is visible
+			},
+			{                                                                                                                    -- 24/7 Sandy @ RT 68 & Orbits Folly Lane
+				loc = vec3(546.30, 2664.85, 41.62),                                                                              -- Location of the target
+				length = 0.4,                                                                                                    -- Length of the target
+				width = 4.8,                                                                                                     -- Width of the target
+				heading = 8.0,                                                                                                   -- Heading of the target
+				minZ = 41.6,                                                                                                     -- Minimum Z coordinate of the target
+				maxZ = 43.4,                                                                                                     -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                   -- Distance at which the target is visible
+			},
+			{ loc = vec3(28.00, -1341.39, 29.04), length = 0.2, width = 4.6, heading = 180.0, minZ = 29.0, maxZ = 30.7, distance = 2.0 }, -- Starberry 24/7
+		}
+
+	},
+	GasFastFood = {
+		name = '24/7 Fast Food',
+		inventory = {
+			{ name = 'burger',       price = 10 },
+			{ name = 'hotdog_a',     price = 10 },
+			{ name = 'hotdog_b',     price = 10 },
+			{ name = 'carneasada_a', price = 10 },
+			{ name = 'kebab_a',      price = 10 },
+			{ name = 'burrito_a',    price = 10 },
+			{ name = 'tosti',        price = 10 },
+			{ name = 'sandwich',     price = 10 },
+
+		},
+		locations = {
+			vec3(28.410961151123, -1345.4965820312, 29.598096847534)
+		},
+		targets = {
+			{                                                                                                                   -- Sandy Shores 24/7
+				loc = vec3(1968.56, 3744.88, 31.66),                                                                            -- Location of the target
+				length = 2.1,                                                                                                   -- Length of the target
+				width = 0.3,                                                                                                    -- Width of the target
+				heading = 30.0,                                                                                                 -- Heading of the target
+				minZ = 31.7,                                                                                                    -- Minimum Z coordinate of the target
+				maxZ = 33.6,                                                                                                    -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                  -- Distance at which the target is visible
+			},
+			{                                                                                                                   -- LTD Chumash
+				loc = vec3(1703.59, 4930.80, 41.32),                                                                            -- Location of the target
+				length = 0.9,                                                                                                   -- Length of the target
+				width = 2.0,                                                                                                    -- Width of the target
+				heading = 12.0,                                                                                                 -- Heading of the target
+				minZ = 41.3,                                                                                                    -- Minimum Z coordinate of the target
+				maxZ = 42.5,                                                                                                    -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                  -- Distance at which the target is visible
+			},
+			{                                                                                                                   -- 24/7 Sandy @ RT 68 & Orbits Folly Lane
+				loc = vec3(539.22, 2670.11, 41.32),                                                                             -- Location of the target
+				length = 2.0,                                                                                                   -- Length of the target
+				width = 0.4,                                                                                                    -- Width of the target
+				heading = 8.0,                                                                                                  -- Heading of the target
+				minZ = 41.3,                                                                                                    -- Minimum Z coordinate of the target
+				maxZ = 43.3,                                                                                                    -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                  -- Distance at which the target is visible
+			},
+			{ loc = vec3(34.29, -1347.39, 28.62), length = 0.3, width = 1.9, heading = 90.0, minZ = 28.6, maxZ = 31.1, distance = 2.0 }, -- Strawberry 24/7
+
+		}
+	},
+	GasSweetsNPastries = {
+		name = '24/7 Sweets & Pastries',
+		inventory = {
+			{ name = 'muffin',     price = 10 },
+			{ name = 'pink_donut', price = 10 },
+			{ name = 'churros_a',  price = 10 },
+			{ name = 'croissant',  price = 10 },
+			{ name = 'donut_a',    price = 10 },
+			{ name = 'donut_b',    price = 10 },
+		},
+		locations = {
+			vec3(28.410961151123, -1345.4965820312, 29.598096847534)
+		},
+		targets = {
+			{                                                                                                                   -- Sandy Shores 24/7
+				loc = vec3(1966.89, 3747.98, 31.52),                                                                            -- Location of the target
+				length = 2.0,                                                                                                   -- Length of the target
+				width = 0.4,                                                                                                    -- Width of the target
+				heading = 30.0,                                                                                                 -- Heading of the target
+				minZ = 31.5,                                                                                                    -- Minimum Z coordinate of the target
+				maxZ = 33.5,                                                                                                    -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                  -- Distance at which the target is visible
+			},
+			{                                                                                                                   -- LTD Chumash
+				loc = vec3(1704.74, 4933.60, 41.58),                                                                            -- Location of the target
+				length = 0.4,                                                                                                   -- Length of the target
+				width = 1.8,                                                                                                    -- Width of the target
+				heading = 324.0,                                                                                                -- Heading of the target
+				minZ = 41.6,                                                                                                    -- Minimum Z coordinate of the target
+				maxZ = 43.3,                                                                                                    -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                  -- Distance at which the target is visible
+			},
+			{                                                                                                                   -- 24/7 Sandy @ RT 68 & Orbits Folly Lane
+				loc = vec3(539.80, 2666.52, 41.29),                                                                             -- Location of the target
+				length = 2.0,                                                                                                   -- Length of the target
+				width = 0.3,                                                                                                    -- Width of the target
+				heading = 8.0,                                                                                                  -- Heading of the target
+				minZ = 41.3,                                                                                                    -- Minimum Z coordinate of the target
+				maxZ = 43.3,                                                                                                    -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                  -- Distance at which the target is visible
+			},
+			{ loc = vec3(34.14, -1343.77, 28.68), length = 0.3, width = 1.8, heading = 90.0, minZ = 28.7, maxZ = 31.1, distance = 2.0 }, -- Stawberry 24/7
 		}
 	},
 	GasVeggiesNFruits = {
@@ -94,7 +294,26 @@ return {
 				minZ = 29.198096847534,
 				maxZ = 29.998096847534,
 				distance = 1.5
-			}
+			},
+			{                                                                                                                    -- Sandy Shores 24/7
+				loc = vec3(1962.60, 3743.54, 31.75),                                                                             -- Location of the target
+				length = 2.1,                                                                                                    -- Length of the target
+				width = 0.7,                                                                                                     -- Width of the target
+				heading = 30.0,                                                                                                  -- Heading of the target
+				minZ = 31.8,                                                                                                     -- Minimum Z coordinate of the target
+				maxZ = 32.5,                                                                                                     -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                   -- Distance at which the target is visible
+			},
+			{                                                                                                                    -- LTD Chumash
+				loc = vec3(1707.98, 4931.29, 41.60),                                                                             -- Location of the target
+				length = 0.2,                                                                                                    -- Length of the target
+				width = 1.8,                                                                                                     -- Width of the target
+				heading = 326.0,                                                                                                 -- Heading of the target
+				minZ = 41.6,                                                                                                     -- Minimum Z coordinate of the target
+				maxZ = 43.2,                                                                                                     -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                   -- Distance at which the target is visible
+			},
+			{ loc = vec3(28.44, -1345.48, 28.63), length = 0.6, width = 2.1, heading = 270.0, minZ = 28.6, maxZ = 29.6, distance = 2.0 }, -- Strawberry 24/7
 		}
 	},
 	GasBeer = {
@@ -103,20 +322,31 @@ return {
 			{ name = 'beer',    price = 10 },
 			{ name = 'whiskey', price = 10 },
 			{ name = 'vodka',   price = 10 },
+
 		},
 		locations = {
 			vec3(28.026361465454, -1341.4890136719, 29.147745132446),
 		},
 		targets = {
-			{
-				loc = vec3(28.026361465454, -1341.4890136719, 29.147745132446),
-				length = 0.9,
-				width = 0.9,
-				heading = 0.0,
-				minZ = 29.147745132446,
-				maxZ = 30.14,
-				distance = 1.5
-			}
+			{                                                                                                                   -- Sandy Shores 24/7
+				loc = vec3(1964.71, 3744.79, 31.84),                                                                            -- Location of the target
+				length = 2.1,                                                                                                   -- Length of the target
+				width = 0.7,                                                                                                    -- Width of the target
+				heading = 30.0,                                                                                                 -- Heading of the target
+				minZ = 31.8,                                                                                                    -- Minimum Z coordinate of the target
+				maxZ = 32.6,                                                                                                    -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                  -- Distance at which the target is visible
+			},
+			{                                                                                                                   -- 24/7 Sandy @ RT 68 & Orbits Folly Lane
+				loc = vec3(542.93, 2668.63, 41.40),                                                                             -- Location of the target
+				length = 2.0,                                                                                                   -- Length of the target
+				width = 0.7,                                                                                                    -- Width of the target
+				heading = 6.0,                                                                                                  -- Heading of the target
+				minZ = 41.4,                                                                                                    -- Minimum Z coordinate of the target
+				maxZ = 42.4,                                                                                                    -- Maximum Z coordinate of the target
+				distance = 2.0                                                                                                  -- Distance at which the target is visible
+			},
+			{ loc = vec3(30.89, -1345.51, 28.58), length = 0.7, width = 2.1, heading = 90.0, minZ = 28.6, maxZ = 29.7, distance = 2.0 }, -- Stawberry 24/7
 		}
 	},
 	PetShop = {
@@ -150,8 +380,8 @@ return {
 			{
 				ped = `cs_guadalope`,
 				scenario = 'WORLD_HUMAN_STAND_IMPATIENT',
-				loc = vector3(563.64, 2753.1, 41.88),
-				heading = 183.65,
+				loc = vec3(552.05, 2743.5, 40.94),
+				heading = 91.74,
 				distance = 3.0,
 			},
 		}
@@ -177,20 +407,31 @@ return {
 		}
 	},
 	Electronics = {
-		name = 'Electronics',
+		name = 'Electronics Shop',
 		inventory = {
-			{ name = 'billing_tablet', price = 150, count = 50 },
-			{ name = 'red_phone',      price = 350, count = 50 },
-			{ name = 'black_phone',    price = 350, count = 50 },
-			{ name = 'green_phone',    price = 350, count = 50 },
-			{ name = 'radio',          price = 350, count = 50 },
-			{ name = 'low_printer',    price = 350, count = 50 },
-		},
-		locations = {
+			{ name = 'red_phone',       price = 1250, count = 50 },
+			{ name = 'black_phone',     price = 1450, count = 50 },
+			{ name = 'green_phone',     price = 1250, count = 50 },
+			{ name = 'radio',           price = 150,  count = 50 },
+			{ name = 'low_printer',     price = 750,  count = 50 },
+			{ name = 'mechanic_tablet', price = 5000, count = 5 },
+			{ name = 'racing_tablet',   price = 5000, count = 5 },
+			{ name = 'powerbank',       price = 5000, count = 5 },
+			{ name = 'qualityscales',   price = 5000, count = 5 },
+			{ name = 'laptop',          price = 500,  count = 50 },
 
 		},
+		locations = {
+			-- vec3(-1440.63, -174.26, 47.7),
+			-- vec3(-658.58, -857.14, 24.49)
+		},
 		targets = {
-			{ loc = vec3(-658.8, -858.74, 24.49), length = 0.5, width = 0.5, heading = 173.98, minZ = 24.2, maxZ = 24.9, distance = 1.5 },
+			{ loc = vec3(-658.8, -858.74, 24.49),  length = 0.5, width = 0.5, heading = 173.98, minZ = 24.2, maxZ = 24.9, distance = 1.5 },
+			{ loc = vec3(-1440.63, -174.26, 47.7), length = 0.5, width = 0.5, heading = 173.98, minZ = 47.2, maxZ = 48.5, distance = 1.5 },
+			{ loc = vec3(-658.58, -857.14, 24.49), length = 0.5, width = 1.5, heading = 173.98, minZ = 24.2, maxZ = 25.5, distance = 3.5 },
+			{ loc = vec3(218.5, -1517.49, 29.29),  length = 0.5, width = 0.5, heading = 173.98, minZ = 29.2, maxZ = 29.5, distance = 1.5 },
+			{ loc = vec3(-85.62, 37.72, 71.9),     length = 0.5, width = 0.5, heading = 173.98, minZ = 71.2, maxZ = 72.5, distance = 1.5 },
+			{ loc = vec3(-30.52, 6480.29, 31.5),   length = 0.5, width = 0.5, heading = 173.98, minZ = 31.2, maxZ = 32.5, distance = 1.5 },
 		}
 	},
 	Liquor = {
@@ -229,7 +470,14 @@ return {
 			id = 402, colour = 69, scale = 0.8
 		},
 		inventory = {
-			{ name = 'lockpick', price = 10 }
+			{ name = 'lockpick',                price = 10 },
+			{ name = 'WEAPON_CROWBAR',          price = 1250, metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_HAMMER',           price = 1250, metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_WRENCH',           price = 1250, metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_BAT',              price = 500,  metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_KNIFE',            price = 500,  metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_FIREEXTINGUISHER', price = 5000, metadata = { registered = true }, license = 'weapon' },
+			{ name = "WEAPON_SLEDGEHAMMER",     price = 1250, metadata = { registered = true }, license = 'weapon' },
 		},
 		locations = {
 			vec3(2748.0, 3473.0, 55.67),
@@ -246,10 +494,13 @@ return {
 			id = 110, colour = 69, scale = 0.8
 		},
 		inventory = {
-			{ name = 'ammo-9',        price = 5, },
-			{ name = 'WEAPON_KNIFE',  price = 200 },
-			{ name = 'WEAPON_BAT',    price = 100 },
-			{ name = 'WEAPON_PISTOL', price = 3500, metadata = { registered = true }, license = 'weapon' }
+			{ name = 'ammo-9',               price = 150,   license = 'weapon' },
+			{ name = 'WEAPON_KNIFE',         price = 500,   metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_BAT',           price = 500,   metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_GOLFCLUB',      price = 500,   metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_SNSPISTOL',     price = 13500, metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_SNSPISTOL_MK2', price = 17500, metadata = { registered = true }, license = 'weapon' },
+			{ name = 'WEAPON_PISTOL',        price = 25500, metadata = { registered = true }, license = 'weapon' }
 		},
 		locations = {
 			vec3(-662.180, -934.961, 21.829),
@@ -257,7 +508,7 @@ return {
 			vec3(1693.44, 3760.16, 34.71),
 			vec3(-330.24, 6083.88, 31.45),
 			vec3(252.63, -50.00, 69.94),
-			vec3(22.56, -1109.89, 29.80),
+			vec3(13.69, -1105.84, 28.25),
 			vec3(2567.69, 294.38, 108.73),
 			vec3(-1117.58, 2698.61, 18.55),
 			vec3(842.44, -1033.42, 28.19)
@@ -268,7 +519,7 @@ return {
 			{ loc = vec3(1693.57, 3761.60, 34.82),  length = 0.6, width = 0.5, heading = 227.39, minZ = 34.7,  maxZ = 35.1,  distance = 2.0 },
 			{ loc = vec3(-330.29, 6085.54, 31.57),  length = 0.6, width = 0.5, heading = 225.0,  minZ = 31.4,  maxZ = 31.8,  distance = 2.0 },
 			{ loc = vec3(252.85, -51.62, 70.0),     length = 0.6, width = 0.5, heading = 70.0,   minZ = 69.9,  maxZ = 70.3,  distance = 2.0 },
-			{ loc = vec3(23.68, -1106.46, 29.91),   length = 0.6, width = 0.5, heading = 160.0,  minZ = 29.8,  maxZ = 30.2,  distance = 2.0 },
+			{ loc = vec3(13.69, -1105.84, 28.25),   length = 0.7, width = 4.5, heading = 160.0,  minZ = 28.2,  maxZ = 29.2,  distance = 2.0 },
 			{ loc = vec3(2566.59, 293.13, 108.85),  length = 0.6, width = 0.5, heading = 360.0,  minZ = 108.7, maxZ = 109.1, distance = 2.0 },
 			{ loc = vec3(-1117.61, 2700.26, 18.67), length = 0.6, width = 0.5, heading = 221.82, minZ = 18.5,  maxZ = 18.9,  distance = 2.0 },
 			{ loc = vec3(841.05, -1034.76, 28.31),  length = 0.6, width = 0.5, heading = 360.0,  minZ = 28.2,  maxZ = 28.6,  distance = 2.0 }
@@ -320,12 +571,14 @@ return {
 		locations = {
 			vec3(451.51, -979.44, 30.68),
 			vec3(-544.79, -113.72, 37.87),
-			vec3(-547.07, -109.04, 37.87)
+			vec3(-547.07, -109.04, 37.87),
+			vec3(-1145.85, -2747.79, 21.36)
 		},
 		targets = {
-			{ loc = vec3(453.21, -980.03, 30.68),  length = 0.5, width = 3.0, heading = 270.0, minZ = 30.5, maxZ = 32.0, distance = 6 },
-			{ loc = vec3(-544.79, -113.72, 37.87), length = 0.5, width = 3.0, heading = 270.0, minZ = 30.5, maxZ = 32.0, distance = 6 },
-			{ loc = vec3(-547.07, -109.04, 37.87), length = 0.5, width = 3.0, heading = 270.0, minZ = 30.5, maxZ = 32.0, distance = 6 }
+			{ loc = vec3(453.21, -980.03, 30.68),    length = 0.5, width = 3.0, heading = 270.0, minZ = 30.5, maxZ = 32.0, distance = 6 },
+			{ loc = vec3(-544.79, -113.72, 37.87),   length = 0.5, width = 3.0, heading = 270.0, minZ = 30.5, maxZ = 32.0, distance = 6 },
+			{ loc = vec3(-547.07, -109.04, 37.87),   length = 0.5, width = 3.0, heading = 270.0, minZ = 30.5, maxZ = 32.0, distance = 6 },
+			{ loc = vec3(-1145.85, -2747.79, 21.36), length = 0.5, width = 3.0, heading = 270.0, minZ = 21.2, maxZ = 22,   distance = 6 },
 		}
 	},
 

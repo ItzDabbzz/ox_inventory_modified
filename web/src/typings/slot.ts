@@ -7,7 +7,6 @@ export type Slot = {
     [key: string]: any;
   };
   durability?: number;
-  category?: string;
 };
 
 export type SlotWithItem = Slot & {
@@ -21,5 +20,4 @@ export type SlotWithItem = Slot & {
   duration?: number;
   image?: string;
   grade?: number | number[];
-  category?: string;
 };

@@ -7,7 +7,6 @@ export type State = {
   itemAmount: number;
   shiftPressed: boolean;
   isBusy: boolean;
-  categoryFilter: string | null;
   additionalMetadata: Array<{ metadata: string; value: string }>;
   history?: {
     leftInventory: Inventory;

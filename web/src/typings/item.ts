@@ -5,7 +5,7 @@ export type ItemData = {
   usable: boolean;
   close: boolean;
   count: number;
-  category?: string;
+  category: string;
   description?: string;
   buttons?: string[];
   ammoName?: string;

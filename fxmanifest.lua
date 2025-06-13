@@ -1,8 +1,4 @@
 fx_version 'cerulean'
-
-shared_script "@SecureServe/src/module/module.lua"
-shared_script "@SecureServe/src/module/module.js"
-file "@SecureServe/secureserve.key"
 use_experimental_fxv2_oal 'yes'
 lua54 'yes'
 game 'gta5'
@@ -19,6 +15,7 @@ dependencies {
     'ox_lib',
 }
 
+client_script '@qbx_core/modules/playerdata.lua'
 shared_script '@ox_lib/init.lua'
 
 ox_libs {
@@ -28,6 +25,7 @@ ox_libs {
 }
 
 server_scripts {
+    '@dabz_logger/init-server.lua',
     '@oxmysql/lib/MySQL.lua',
     'init.lua'
 }

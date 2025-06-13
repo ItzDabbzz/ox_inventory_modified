@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import useNuiEvent from '../../hooks/useNuiEvent';
 import InventoryControl from './InventoryControl';
 import InventoryHotbar from './InventoryHotbar';
-import HotslotInventory from './HotslotInventory';
 import { useAppDispatch } from '../../store';
 import { refreshSlots, setAdditionalMetadata, setupInventory } from '../../store/inventory';
 import { useExitListener } from '../../hooks/useExitListener';
@@ -14,9 +13,12 @@ import { closeTooltip } from '../../store/tooltip';
 import InventoryContext from './InventoryContext';
 import { closeContextMenu } from '../../store/contextMenu';
 import Fade from '../utils/transitions/Fade';
+import { Categories } from '../../store/categories';
 
 const Inventory: React.FC = () => {
   const [inventoryVisible, setInventoryVisible] = useState(false);
+  const [selectedLeftCategory, setSelectedLeftCategory] = useState<string | null>(null);
+  const [selectedRightCategory, setSelectedRightCategory] = useState<string | null>(null);
   const dispatch = useAppDispatch();
 
   useNuiEvent<boolean>('setInventoryVisible', setInventoryVisible);
@@ -24,6 +26,9 @@ const Inventory: React.FC = () => {
     setInventoryVisible(false);
     dispatch(closeContextMenu());
     dispatch(closeTooltip());
+    // Reset categories when closing
+    setSelectedLeftCategory(null);
+    setSelectedRightCategory(null);
   });
   useExitListener(setInventoryVisible);
 
@@ -41,20 +46,27 @@ const Inventory: React.FC = () => {
     dispatch(setAdditionalMetadata(data));
   });
 
+  // Handle categories initialization
+  useNuiEvent<{
+    categories: { [key: string]: { label: string; icon: string; color: string } };
+  }>('initCategories', ({ categories }) => {
+    for (const name in categories) Categories[name] = categories[name];
+  });
+
   return (
     <>
       <Fade in={inventoryVisible}>
         <div className="inventory-wrapper">
-        <div className="hotslot-container">
-            <HotslotInventory/>
-          </div>
-          <div className="inventory-wrapper-container">
-            <LeftInventory />
-            <InventoryControl />
-            <RightInventory />
-            <Tooltip />
-            <InventoryContext />
-          </div>
+          <LeftInventory selectedCategory={selectedLeftCategory} />
+          <InventoryControl 
+            selectedLeftCategory={selectedLeftCategory}
+            selectedRightCategory={selectedRightCategory}
+            onLeftCategoryChange={setSelectedLeftCategory}
+            onRightCategoryChange={setSelectedRightCategory}
+          />
+          <RightInventory selectedCategory={selectedRightCategory} />
+          <Tooltip />
+          <InventoryContext />
         </div>
       </Fade>
       <InventoryHotbar />

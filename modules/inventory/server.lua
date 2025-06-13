@@ -87,7 +87,7 @@ for _, stash in pairs(lib.load('data.stashes') or {}) do
 		maxWeight = stash.weight,
 		groups = stash.groups or stash.jobs,
 		coords = shared.target and stash.target?.loc or stash.coords,
-        distance = stash.distance or 10
+		distance = stash.distance or 10
 	}
 end
 
@@ -195,9 +195,10 @@ local function loadInventoryData(data, player, ignoreSecurityChecks)
 			inventory = Inventories[owner and ('%s:%s'):format(stash.name, owner) or stash.name]
 
 			if not inventory then
-				inventory = Inventory.Create(stash.name, stash.label or stash.name, 'stash', stash.slots, 0, stash.maxWeight, owner, nil, stash.groups)
-                inventory.coords = stash.coords
-                inventory.distance = stash.distance
+				inventory = Inventory.Create(stash.name, stash.label or stash.name, 'stash', stash.slots, 0,
+					stash.maxWeight, owner, nil, stash.groups)
+				inventory.coords = stash.coords
+				inventory.distance = stash.distance
 			end
 		end
 	end
@@ -212,7 +213,7 @@ end
 
 setmetatable(Inventory, {
 	__call = function(self, inv, player, ignoreSecurityChecks)
-        if Inventory.Lock then return false end
+		if Inventory.Lock then return false end
 
 		if not inv then
 			return self
@@ -386,8 +387,19 @@ function Inventory.SetSlot(inv, item, count, metadata, slot)
 		TriggerClientEvent('ox_inventory:itemNotify', inv.id, { currentSlot, 'ui_removed', currentSlot.count })
 		currentSlot = nil
 	else
-		currentSlot = { name = item.name, label = item.label, weight = item.weight, slot = slot, count = newCount, description =
-		item.description, metadata = metadata, stack = item.stack, close = item.close, category = item.category }
+		currentSlot = {
+			name = item.name,
+			label = item.label,
+			weight = item.weight,
+			slot = slot,
+			count = newCount,
+			description =
+				item.description,
+			metadata = metadata,
+			stack = item.stack,
+			close = item.close,
+			category = item.category
+		}
 		local slotWeight = Inventory.SlotWeight(item, currentSlot)
 		currentSlot.weight = slotWeight
 		newWeight += slotWeight
@@ -502,7 +514,7 @@ local function hasActiveInventory(playerId, owner)
 					playerName = GetPlayerName(activePlayer),
 					fivem = GetPlayerIdentifierByType(activePlayer, 'fivem'),
 					license = GetPlayerIdentifierByType(activePlayer, 'license2') or
-					GetPlayerIdentifierByType(activePlayer, 'license'),
+						GetPlayerIdentifierByType(activePlayer, 'license'),
 				}, {
 					indent = true,
 					sort_keys = true
@@ -545,7 +557,7 @@ RegisterCommand('clearActiveIdentifier', function(source, args)
 			playerName = GetPlayerName(activePlayer),
 			fivem = GetPlayerIdentifierByType(activePlayer, 'fivem'),
 			license = GetPlayerIdentifierByType(activePlayer, 'license2') or
-			GetPlayerIdentifierByType(activePlayer, 'license'),
+				GetPlayerIdentifierByType(activePlayer, 'license'),
 		}, {
 			indent = true,
 			sort_keys = true
@@ -621,28 +633,28 @@ function Inventory.Remove(inv)
 
 	if not inv then return end
 
-    if inv.type == 'drop' then
-        TriggerClientEvent('ox_inventory:removeDrop', -1, inv.id)
-        Inventory.Drops[inv.id] = nil
-    elseif inv.player then
-        activeIdentifiers[inv.owner] = nil
-    end
+	if inv.type == 'drop' then
+		TriggerClientEvent('ox_inventory:removeDrop', -1, inv.id)
+		Inventory.Drops[inv.id] = nil
+	elseif inv.player then
+		activeIdentifiers[inv.owner] = nil
+	end
 
-    for playerId in pairs(inv.openedBy) do
-        if inv.id ~= playerId then
-            local target = Inventories[playerId]
+	for playerId in pairs(inv.openedBy) do
+		if inv.id ~= playerId then
+			local target = Inventories[playerId]
 
-            if target then
-                target:closeInventory()
-            end
-        end
-    end
+			if target then
+				target:closeInventory()
+			end
+		end
+	end
 
-    if not inv.datastore and inv.changed then
-        Inventory.Save(inv)
-    end
+	if not inv.datastore and inv.changed then
+		Inventory.Save(inv)
+	end
 
-    Inventories[inv.id] = nil
+	Inventories[inv.id] = nil
 end
 
 exports('RemoveInventory', Inventory.Remove)
@@ -717,6 +729,22 @@ function Inventory.Save(inv)
 
 	return db.saveStash(inv.owner, inv.dbId, data)
 end
+
+RegisterNetEvent('rep-weed:server:updateDry', function(id, slot, item)
+	inv = Inventory(id)
+	inv.weight -= Inventory(id).items[slot].weight
+	Inventory(id).items[slot] = item
+	inv.weight += Inventory(id).items[slot].weight
+	inv:syncSlotsWithClients({
+		{
+			item = item,
+			inventory = inv.id
+		}
+	}, true)
+	if inv.player and server.syncInventory then
+		server.syncInventory(inv)
+	end
+end)
 
 ---@alias RandomLoot { [1]: string, [2]: number, [3]: number, [4]?: number }
 
@@ -799,8 +827,19 @@ local function generateItems(inv, invType, items)
 			local metadata, count = Items.Metadata(inv, item, v[3] or {}, v[2])
 			local weight = Inventory.SlotWeight(item, { count = count, metadata = metadata })
 			totalWeight = totalWeight + weight
-			returnData[i] = { name = item.name, label = item.label, weight = weight, slot = i, count = count, description =
-			item.description, metadata = metadata, stack = item.stack, close = item.close, category = item.category }
+			returnData[i] = {
+				name = item.name,
+				label = item.label,
+				weight = weight,
+				slot = i,
+				count = count,
+				description =
+					item.description,
+				metadata = metadata,
+				stack = item.stack,
+				close = item.close,
+				category = item.category
+			}
 		end
 	end
 
@@ -848,9 +887,20 @@ function Inventory.Load(id, invType, owner)
 				v.metadata = Items.CheckMetadata(v.metadata or {}, item, v.name, ostime)
 				local slotWeight = Inventory.SlotWeight(item, v)
 				weight += slotWeight
-				returnData[v.slot] = { name = item.name, label = item.label, weight = slotWeight, slot = v.slot, count =
-				v.count, description = item.description, metadata = v.metadata, stack = item.stack, close = item.close, category =
-				item.category }
+				returnData[v.slot] = {
+					name = item.name,
+					label = item.label,
+					weight = slotWeight,
+					slot = v.slot,
+					count =
+						v.count,
+					description = item.description,
+					metadata = v.metadata,
+					stack = item.stack,
+					close = item.close,
+					category =
+						item.category
+				}
 			end
 		end
 	end
@@ -1044,12 +1094,12 @@ function Inventory.SetMetadata(inv, slotId, metadata)
 		if Utils.IsValidImageUrl(metadata.imageurl) then
 			Utils.DiscordEmbed('Valid image URL',
 				('Updated item "%s" (%s) with valid url in "%s".\n%s\nid: %s\nowner: %s'):format(
-				metadata.label or slot.label, slot.name, inv.label, metadata.imageurl, inv.id, inv.owner,
+					metadata.label or slot.label, slot.name, inv.label, metadata.imageurl, inv.id, inv.owner,
 					metadata.imageurl), metadata.imageurl, 65280)
 		else
 			Utils.DiscordEmbed('Invalid image URL',
 				('Updated item "%s" (%s) with invalid url in "%s".\n%s\nid: %s\nowner: %s'):format(
-				metadata.label or slot.label, slot.name, inv.label, metadata.imageurl, inv.id, inv.owner,
+					metadata.label or slot.label, slot.name, inv.label, metadata.imageurl, inv.id, inv.owner,
 					metadata.imageurl), metadata.imageurl, 16711680)
 			metadata.imageurl = nil
 		end
@@ -1747,7 +1797,7 @@ lib.callback.register('ox_inventory:swapItems', function(source, data)
 			if toData and toData.metadata.container and fromInventory.type == 'container' then return false end
 
 			local container, containerItem = (not sameInventory and playerInventory.containerSlot) and
-			(fromInventory.type == 'container' and fromInventory or toInventory)
+				(fromInventory.type == 'container' and fromInventory or toInventory)
 
 			if container then
 				containerItem = playerInventory.items[playerInventory.containerSlot]
@@ -1953,7 +2003,38 @@ lib.callback.register('ox_inventory:swapItems', function(source, data)
 				end
 			end
 
+			if fromData then
+				if fromData.name == 'wetbud' then
+					if fromInventory.type == 'stash' then
+						if fromInventory.type == 'stash' then
+							if not fromData.metadata then
+								fromData.metadata = {}
+								fromData.metadata.time = os.time()
+								fromData.metadata.dry = 10
+							else
+								if not fromData.metadata.time then fromData.metadata.time = os.time() end
+								if not fromData.metadata.dry then fromData.metadata.dry = 10 end
+							end
+						end
+					end
+				end
+			end
 			fromInventory.items[data.fromSlot] = fromData
+			if toData then
+				if toData.name == 'wetbud' then
+					if toInventory.type == 'stash' then
+						print('stash')
+						if not toData.metadata then
+							toData.metadata = {}
+							toData.metadata.time = os.time()
+							toData.metadata.dry = 10
+						else
+							if not toData.metadata.time then toData.metadata.time = os.time() end
+							if not toData.metadata.dry then toData.metadata.dry = 10 end
+						end
+					end
+				end
+			end
 			toInventory.items[data.toSlot] = toData
 
 			if fromInventory.changed ~= nil then fromInventory.changed = true end
@@ -2072,9 +2153,19 @@ function Inventory.Return(source)
 			if item then
 				local weight = Inventory.SlotWeight(item, data)
 				totalWeight = totalWeight + weight
-				inventory[data.slot] = { name = data.name, label = item.label, weight = weight, slot = data.slot, count =
-				data.count, description = item.description, metadata = data.metadata, stack = item.stack, close = item
-				.close }
+				inventory[data.slot] = {
+					name = data.name,
+					label = item.label,
+					weight = weight,
+					slot = data.slot,
+					count =
+						data.count,
+					description = item.description,
+					metadata = data.metadata,
+					stack = item.stack,
+					close = item
+						.close
+				}
 			end
 		end
 	end
